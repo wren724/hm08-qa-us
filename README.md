@@ -1,15 +1,15 @@
-Sprint 8 project
 Sprint 8 Project tests for the functionality of the Urban.Routes application.
 
 #Installation
-
 1. **Clone the repository:**
+
 git clone git@github.com:wren724/hm08-qa-us.git
 
 2. **Navigate to the project directory:**
 cd hm08-qa-us
 
 3. **Install the dependencies:**
+
 WebdriverIO
     npx wdio config 
 

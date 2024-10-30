@@ -42,7 +42,7 @@ describe('Create an order', () => {
         await iceCreamAdder.click();
         await iceCreamAdder.click();
         const iceCreamCounter = await $('//div[normalize-space()="2"]');
-        await expect(iceCreamAdder).toBeExisting();
+        await expect(iceCreamCounter).toBeExisting();
     })
     it('should order a blanket and handkerchiefs', async () => {
         await browser.url(`/`)
@@ -95,8 +95,7 @@ describe('Create an order', () => {
         expect(await checkbox.isSelected()).toBe(true);
 
         await page.carSearchModalAppears();
-
-        await browser.pause(timeout = 30000);
+        await browser.pause(30000);
 
         const driverInfoModal = await $(page.driverInfoModal);
         await driverInfoModal.waitForDisplayed();
