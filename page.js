@@ -81,7 +81,7 @@ module.exports = {
         await linkButton.waitForDisplayed();
         await linkButton.click();
         const paymentCheckMark = await $(this.paymentCheckMark);
-
+        await expect(paymentCheckMark).toBeExisting();
     },
     fillPhoneNumber: async function(phoneNumber) {
         const phoneNumberButton = await $(this.phoneNumberButton);
