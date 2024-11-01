@@ -9,6 +9,7 @@ git clone git@github.com:wren724/hm08-qa-us.git
 cd hm08-qa-us
 
 3. **Install the dependencies:**
+npm install
 
 WebdriverIO
     npx wdio config 

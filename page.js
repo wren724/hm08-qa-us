@@ -6,6 +6,7 @@ module.exports = {
     codeField: '//div[@class="card-code-input"]//input[@id="code"]',
     phoneNumberCodeField: '#code',
     cardNumberField: '#number',
+    driverMessageField: '#comment',
 
 
     // Buttons
@@ -20,19 +21,34 @@ module.exports = {
     blanketButton: 'div.r-sw-container .slider',
     checkbox: 'div.r-sw-container input[type="checkbox"]',
     enterButton: '.smart-button-main',
+    iceCreamAdder: '.counter-plus',
+    iceCreamCounter: '//div[normalize-space()="2"]',
+    paymentCheckMark: '#card-1',
+
     // Modals
     phoneNumberModal: '.modal',
     paymentMethodModal: '//div[@class="payment-picker open"]//div[@class="section active"]',
     driverInfoModal: '.order-body',
     carSearchModal: 'div=Car search',
+
+    //Titles
+    driverInfoTitle: '.order-header-title',
   
 
     // Functions
     fillAddresses: async function(from, to) {
         const fromField = await $(this.fromField);
+        await fromField.waitForDisplayed();
         await fromField.setValue(from);
+        await expect(fromField).toHaveValue(from);
+
         const toField = await $(this.toField);
+        await toField.waitForDisplayed();
         await toField.setValue(to);
+        await expect(toField).toHaveValue(to);
+       
+    },
+    clickCallTaxi: async function() {
         const callATaxiButton = await $(this.callATaxiButton);
         await callATaxiButton.waitForDisplayed();
         await callATaxiButton.click();
@@ -64,6 +80,7 @@ module.exports = {
         const linkButton = await $(this.linkButton);
         await linkButton.waitForDisplayed();
         await linkButton.click();
+        const paymentCheckMark = await $(this.paymentCheckMark);
 
     },
     fillPhoneNumber: async function(phoneNumber) {
@@ -75,11 +92,13 @@ module.exports = {
         const phoneNumberField = await $(this.phoneNumberField);
         await phoneNumberField.waitForDisplayed();
         await phoneNumberField.setValue(phoneNumber);
+        await expect(phoneNumberField).toHaveValue(phoneNumber);
     },
-    driverMessage: async function() {
-        const driverMessageField = await $('#comment');
+    driverMessage: async function(message) {
+        const driverMessageField = await $(this.driverMessageField);
         await driverMessageField.waitForDisplayed();
-        await driverMessageField.setValue('Get some whiskey')
+        await driverMessageField.setValue(message)
+        await expect(driverMessageField).toHaveValue(message);
     },
     orderBlanket: async function() {
         const blanketButton = await $(this.blanketButton);
